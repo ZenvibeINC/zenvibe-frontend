@@ -2,7 +2,8 @@ import Styles from "./LoginForm.module.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { register } from "..//..//Redux/actions.ts"; // Importa la acción de registro
+import { register } from "..//..//Redux/actions.ts";
+import Button from '@mui/material/Button';
 
 export default function LoginForm() {
   const [loginData, setLoginData] = useState({
@@ -83,6 +84,7 @@ export default function LoginForm() {
           />
         </div>
         <button type="submit" className={Styles.button}>Register</button>
+        <Button variant="contained">Hello world</Button>
       </form>
     </div>
   );
