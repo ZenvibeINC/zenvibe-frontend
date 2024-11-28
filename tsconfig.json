@@ -1,38 +1,46 @@
 {
-    "compilerOptions": {
-      /* Visit https://aka.ms/tsconfig to read more about this file */
-  
-      /* Language and Environment */
-      "target": "es2020",                                /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
-      "module": "commonjs",                              /* Specify what module code is generated. */
-      "rootDir": "src",                                  /* Specify the root folder within your source files. */
-      "outDir": "./dist",                                /* Specify an output folder for all emitted files. */
-      "jsx": "react-jsx",                                /* Specify what JSX code is generated for React. */
-      "esModuleInterop": true,                           /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
-      "forceConsistentCasingInFileNames": true,          /* Ensure that casing is correct in imports. */
-      "resolveJsonModule": true,                         /* Enable importing .json files. */
-      "skipLibCheck": true,                              /* Skip type checking all .d.ts files. */
-  
-      /* Type Checking */
-      "strict": true,                                    /* Enable all strict type-checking options. */
-      "noUnusedLocals": true,                            /* Enable error reporting when local variables aren't read. */
-      "noUnusedParameters": true,                        /* Raise an error when a function parameter isn't read. */
-  
-      /* Emit */
-      "sourceMap": true,                                 /* Create source map files for emitted JavaScript files. */
-      "declaration": true,                               /* Generate .d.ts files from TypeScript and JavaScript files in your project. */
-  
-      /* Module Resolution */
-      "moduleResolution": "node",                        /* Specify how TypeScript looks up a file from a given module specifier. */
-  
-      /* Interop Constraints */
-      "allowSyntheticDefaultImports": true,              /* Allow 'import x from y' when a module doesn't have a default export. */
-  
-      /* Completeness */
-      "skipLibCheck": true                               /* Skip type checking all .d.ts files. */
-    },
-  
-    "include": ["src/**/*.ts", "src/**/*.tsx"],          /* Include all .ts and .tsx files inside the src folder */
-    "exclude": ["node_modules"]                          /* Exclude node_modules from the compilation */
-  }
-  
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "es2020",                     // Establece la versión de JavaScript compatible para los archivos compilados.
+    "module": "esnext",                     // Usa un sistema de módulos compatible con ESNext.
+    "rootDir": "src",                       // Carpeta raíz donde están los archivos fuente.
+    "outDir": "./dist",                     // Carpeta de salida para todos los archivos compilados.
+    "jsx": "react-jsx",                     // Especifica el soporte para JSX en React.
+
+    /* Library Options */
+    "lib": ["dom", "dom.iterable", "esnext"], // Agrega soporte para características ESNext y API de DOM.
+
+    /* Interoperabilidad de Módulos */
+    "esModuleInterop": true,                // Facilita la compatibilidad con módulos CommonJS.
+    "allowSyntheticDefaultImports": true,   // Permite la importación por defecto en módulos sin `export default`.
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+
+    /* JavaScript Compatibility */
+    "allowJs": true,                        // Permite incluir archivos `.js` en el proyecto.
+    "checkJs": false,                       // Evita verificar los tipos en archivos `.js`.
+
+    /* Type Checking */
+    "strict": true,                         // Habilita todas las opciones estrictas de TypeScript para una verificación de tipos rigurosa.
+    "noImplicitAny": true,                  // Previene el uso de `any` implícito en el código.
+    "strictNullChecks": true,               // Requiere que las variables que puedan ser `null` o `undefined` sean manejadas explícitamente.
+    "forceConsistentCasingInFileNames": true, // Asegura que el sistema de archivos sea consistente con los nombres de los archivos en los imports.
+    "skipLibCheck": true,                   // Omite la verificación de archivos de declaración para mejorar el rendimiento de compilación.
+
+    /* Module Resolution */
+    "moduleResolution": "node",             // Establece la resolución de módulos en estilo Node.js para los imports.
+    "resolveJsonModule": true,              // Permite importar archivos `.json`.
+
+    /* Emit Options */
+    "sourceMap": true,                      // Genera archivos de mapas de fuentes para depuración.
+    "declaration": true,                    // Genera archivos de declaración `.d.ts` para los módulos.
+    "declarationMap": true,                 // Crea mapas de fuentes para los archivos `.d.ts` generados.
+
+    /* Compatibility with React and Other Libraries */
+    "isolatedModules": true,                // Permite compatibilidad con paquetes que requieren módulos aislados como `babel`.
+    "useDefineForClassFields": true         // Asegura compatibilidad con el uso de campos de clase y JSX.
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.js", "src/**/*.jsx"]
+,
+  "exclude": ["node_modules", "dist", "build"] // Excluye carpetas innecesarias en la compilación.
+}

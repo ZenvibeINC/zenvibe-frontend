@@ -3,7 +3,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { register } from "..//..//Redux/actions.ts";
-import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
 
 export default function LoginForm() {
   const [loginData, setLoginData] = useState({
@@ -11,6 +13,7 @@ export default function LoginForm() {
     email: "",
     password: "",
     phone: "",
+    allowExtraEmails: false,
   });
 
   const navigate = useNavigate();
@@ -27,9 +30,17 @@ export default function LoginForm() {
   // Manejo del submit del formulario
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log('Datos a enviar:', loginData);
     dispatch(register(loginData)); // Despacha la acción de registro
     navigate("/"); // Navega a la página de inicio
   };
+
+  const handleCheckboxChange = (e) => {
+    setLoginData({
+        ...loginData,
+        allowExtraEmails: Boolean(e.target.checked),
+    });
+};
 
   return (
     <div className={Styles.container}>
@@ -83,8 +94,17 @@ export default function LoginForm() {
             placeholder="123456789"
           />
         </div>
+        <FormControlLabel
+                control={
+                    <Checkbox 
+                        checked={loginData.allowExtraEmails} 
+                        onChange={handleCheckboxChange} 
+                        color="primary" 
+                    />
+                }
+                label="I want to receive updates via email."
+            />
         <button type="submit" className={Styles.button}>Register</button>
-        <Button variant="contained">Hello world</Button>
       </form>
     </div>
   );
