@@ -3,6 +3,7 @@ import { Product, User } from "./types";
 import axios from "axios";
 import { Dispatch } from "redux";
 
+
 interface GetAllProductsAction {
   type: ActionTypes.GET_ALL_PRODUCTS;
   payload: Product[];
@@ -212,6 +213,26 @@ export type Action =
       }
     };  
   };
+//   export const register = (user: User) => {
+//     return async (dispatch: Dispatch<Action>) => {
+//         try {
+//             const response = await fetch("http://localhost:3001/users/register", {
+//                 method: "POST",
+//                 headers: {
+//                     "Content-Type": "application/json",
+//                 },
+//                 body: JSON.stringify(user),
+//             });
+//             const data = await response.json();
+//             dispatch({
+//                 type: ActionTypes.REGISTER,
+//                 payload: data,
+//             });
+//         } catch (error) {
+//             console.error("Error registering:", error);
+//         }
+//     };
+// };
 
   //** CART FUNCTIONS */
 

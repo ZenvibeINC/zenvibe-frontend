@@ -10,8 +10,9 @@ export interface Product {
   export interface User {
     name: string;
     email: string;
-    phone: number;
     password: string;
+    phone: number;
+    allowExtraEmails?: boolean;
     // otros campos del usuario
   }
   
