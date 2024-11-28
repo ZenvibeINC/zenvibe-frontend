@@ -43,7 +43,7 @@ const Card = styled(MuiCard)(({ theme }) => ({
 
 const SignUpContainer = styled(Stack)(({ theme }) => ({
     height: 'calc(100% - var(--template-frame-height, 0))',
-    minHeight: '100%', // Asegura que siempre ocupe toda la altura
+    minHeight: '100%', 
     padding: theme.spacing(2),
     [theme.breakpoints.up('sm')]: {
       padding: theme.spacing(4),
@@ -147,9 +147,9 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (validateInputs()) {
-      console.log('Datos a enviar:', loginData); // Esto te permitirá ver los datos antes de enviarlos
-      dispatch(register(loginData)); // Despacha la acción de registro
-      navigate('/'); // Navega a la página de inicio
+      // console.log('Datos a enviar:', loginData); 
+      dispatch(register(loginData)); 
+      navigate('/'); 
     }
 
     
@@ -167,7 +167,7 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
             src={LogoZenVibe}
             alt="Logo"
             sx={{
-              width: '110px', // Ajusta el tamaño del logo según tus necesidades
+              width: '110px', 
               height: 'auto',
               margin: '0 auto',
             }}
@@ -195,9 +195,9 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
                 fullWidth
                 id="name"
                 placeholder="Jon Snow"
-                // error={nameError}
-                // helperText={nameErrorMessage}
-                // color={nameError ? 'error' : 'primary'}
+                error={nameError}
+                helperText={nameErrorMessage}
+                color={nameError ? 'error' : 'primary'}
               />
             </FormControl>
             <FormControl>
@@ -212,9 +212,9 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
                 onChange={handleChange}
                 autoComplete="email"
                 variant="outlined"
-                // error={emailError}
-                // helperText={emailErrorMessage}
-                // color={passwordError ? 'error' : 'primary'}
+                error={emailError}
+                helperText={emailErrorMessage}
+                color={passwordError ? 'error' : 'primary'}
               />
             </FormControl>
             <FormControl>
@@ -230,9 +230,9 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
                 id="password"
                 autoComplete="new-password"
                 variant="outlined"
-                // error={passwordError}
-                // helperText={passwordErrorMessage}
-                // color={passwordError ? 'error' : 'primary'}
+                error={passwordError}
+                helperText={passwordErrorMessage}
+                color={passwordError ? 'error' : 'primary'}
               />
             </FormControl>
             <FormControl>
@@ -246,9 +246,9 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
                 placeholder="123456789"
                 type="number"
                 id="phone"
-                // error={phoneError}
-                // helperText={phoneErrorMessage}
-                // color={phoneError ? 'error' : 'primary'}
+                error={phoneError}
+                helperText={phoneErrorMessage}
+                color={phoneError ? 'error' : 'primary'}
               />
             </FormControl>
             <FormControlLabel
